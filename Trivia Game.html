@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Baltimore Ravens</title>
+    <link href="Baltimore.css" rel="stylesheet">
+</head>
+<body style="background-color: #241773; color: rgb(248, 215, 27);">
+    <h1> The Baltimore Ravens By: Han Nguyen</h1>
+<title> The Baltimore Ravens</title>
+<h1> The Baltimore Ravens By: Han Nguyen</h1>
+<body style="background-color: #241773; color: rgb(248, 215, 27);"></body>
+<link href="Baltimore.css"rel="stylesheet">
+
+
+
+
+
+
+
+<nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="History.html">History</a></li>
+      <li><a href="Roster.html">Roster</a></li>
+      <li><a href="Previous-Season.html">Previous Season</a></li>
+      <li><a href="Trivia Game.html">Trivia Game</a></li>
+      <li><a href="M&T Bank.html">M&T Bank Stadium</a></li>
+    </ul>
+  </div>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Baltimore Ravens Trivia</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #241773; /* Ravens Purple */
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        background-color: #000;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    h1 {
+        color: #9E7C0C; /* Ravens Gold */
+    }
+
+    button {
+        background-color: #9E7C0C;
+        color: black;
+        border: none;
+        padding: 10px;
+        margin: 5px;
+        width: 80%;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #caa52e;
+    }
+
+    #nextBtn {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🏈 Ravens Trivia Game</h1>
+    <h2 id="question">Question goes here</h2>
+    <div id="answers"></div>
+    <button id="nextBtn">Next Question</button>
+    <h3 id="score"></h3>
+</div>
+
+<script>
+const questions = [
+    {
+        question: "What year were the Baltimore Ravens founded?",
+        answers: ["1996", "1985", "2001", "1990"],
+        correct: 0
+    },
+    {
+        question: "Who is the Ravens' all-time leading kicker?",
+        answers: ["Justin Tucker", "Adam Vinatieri", "Matt Stover", "Ray Lewis"],
+        correct: 0
+    },
+    {
+        question: "How many Super Bowls have the Ravens won?",
+        answers: ["1", "2", "3", "0"],
+        correct: 1
+    },
+    {
+        question: "Who was the legendary Ravens linebacker?",
+        answers: ["Tom Brady", "Ray Lewis", "Peyton Manning", "Ed Reed"],
+        correct: 1
+    },
+    {
+        question: "What are the Ravens' main colors?",
+        answers: ["Red & White", "Purple & Black", "Blue & Yellow", "Green & Gold"],
+        correct: 1
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById("question");
+const answersEl = document.getElementById("answers");
+const nextBtn = document.getElementById("nextBtn");
+const scoreEl = document.getElementById("score");
+
+function showQuestion() {
+    resetState();
+    let q = questions[currentQuestion];
+    questionEl.innerText = q.question;
+
+    q.answers.forEach((answer, index) => {
+        const button = document.createElement("button");
+        button.innerText = answer;
+        button.onclick = () => selectAnswer(index);
+        answersEl.appendChild(button);
+    });
+}
+
+function resetState() {
+    nextBtn.style.display = "none";
+    answersEl.innerHTML = "";
+}
+
+function selectAnswer(index) {
+    let correct = questions[currentQuestion].correct;
+
+    if (index === correct) {
+        score++;
+        alert("Correct!");
+    } else {
+        alert("Wrong!");
+    }
+
+    nextBtn.style.display = "block";
+}
+
+nextBtn.onclick = () => {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+};
+
+function showScore() {
+    questionEl.innerText = "Game Over!";
+    answersEl.innerHTML = "";
+    nextBtn.style.display = "none";
+    scoreEl.innerText = "Your Score: " + score + "/" + questions.length;
+}
+
+showQuestion();
+</script>
+
+</body>
+</html>
+</nav>
+<body>
+<style> 
+
