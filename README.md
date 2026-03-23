@@ -1,2 +1,0 @@
-# Ravens Hackathon Website
-
